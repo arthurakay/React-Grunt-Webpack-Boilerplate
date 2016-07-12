@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 
                 progress    : true,
                 failOnError : true,
-                devTool     : 'source-map',
+                devtool     : 'source-map',
 
                 keepAlive : false,
                 watch     : false,
@@ -48,8 +48,9 @@ module.exports = function(grunt) {
                 },
 
                 output: {
-                    path: 'build/',
-                    filename: '[name]-bundle.js'
+                    path: 'public/js/',
+                    filename: '[name]-bundle.js',
+                    sourceMapFilename: '[file].map'
                 }
             }
         }

@@ -21,7 +21,8 @@
     "grunt-babel": "^6.0.0",
     "grunt-exec": "^1.0.0",
     "grunt-webpack": "^1.0.11",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "react": "^15.2.1",
