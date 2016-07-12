@@ -53,17 +53,53 @@ module.exports = function(grunt) {
                     sourceMapFilename: '[file].map'
                 }
             }
+        },
+
+        copy: {
+            clone: {
+                files: [
+                    {
+                        src: [
+                            'package.json',
+                            'Gruntfile.js'
+                        ],
+                        dest: '_clone',
+                        expand: true
+                    },
+                    {
+                        cwd: 'src',
+                        src: '**/*',
+                        dest: '_clone/src',
+                        expand: true
+                    },
+                    {
+                        cwd: 'public',
+                        src: [
+                            'index.html'
+                        ],
+                        dest: '_clone/public',
+                        expand: true
+                    }
+                ]
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-webpack');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
     grunt.registerTask('default', [
-        'exec:clean',
-        'exec:npm',
-
         'webpack'
+    ]);
+
+    grunt.registerTask('clean', [
+        'exec:clean',
+        'exec:npm'
+    ]);
+
+    grunt.registerTask('clone', [
+        'copy:clone'
     ]);
 };
